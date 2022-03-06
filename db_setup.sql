@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS mybooks;
+CREATE user IF NOT EXISTS admin_user identified BY '1234';
+GRANT all ON mybooks.* TO admin_user;
+USE mybooks;
+CREATE TABLE IF NOT EXISTS books (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    author VARCHAR(100),
+    category VARCHAR(50)NOT NULL ,
+    status INT NOT NULL ,
+    evaluation VARCHAR(50),
+    remarks VARCHAR(400),
+    created_on DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    changed_on DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
